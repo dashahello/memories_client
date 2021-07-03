@@ -3,7 +3,7 @@ import { useSelector } from 'react-redux';
 import SinglePost from './SinglePost/SinglePost.js';
 import useStyles from './styles.js';
 
-export default function Posts() {
+export default function Posts({ setCurrentId }) {
   const posts = useSelector((state) => state.posts);
   const classes = useStyles();
 
@@ -20,7 +20,7 @@ export default function Posts() {
     >
       {posts.map((post) => (
         <Grid key={post._id} item xs={12} sm={6}>
-          <SinglePost post={post} />
+          <SinglePost post={post} setCurrentId={setCurrentId} />
         </Grid>
       ))}
     </Grid>
