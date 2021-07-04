@@ -12,7 +12,7 @@ import MoreHorizIcon from '@material-ui/icons/MoreHoriz';
 import moment from 'moment';
 import { useDispatch } from 'react-redux';
 import useStyles from './styles.js';
-import { deletePost } from '../../../actions/posts.js';
+import { deletePost, likePost } from '../../../actions/posts.js';
 
 export default function SinglePost({ post, setCurrentId }) {
   const classes = useStyles();
@@ -63,7 +63,11 @@ export default function SinglePost({ post, setCurrentId }) {
       </CardContent>
 
       <CardActions className={classes.cardActions}>
-        <Button size="small" color="primary" onClick={() => {}}>
+        <Button
+          size="small"
+          color="primary"
+          onClick={() => dispatch(likePost(post._id))}
+        >
           <ThumbUpAltIcon fontSize="small" />
           Like
           {post.likeCount}
