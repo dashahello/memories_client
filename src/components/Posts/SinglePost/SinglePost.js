@@ -4,7 +4,8 @@ import {
   CardContent,
   CardMedia,
   Button,
-  Typography
+  Typography,
+  TextField
 } from '@material-ui/core';
 import DeleteIcon from '@material-ui/icons/Delete';
 import ThumbUpAltIcon from '@material-ui/icons/ThumbUpAlt';
@@ -13,6 +14,7 @@ import moment from 'moment';
 import { useDispatch } from 'react-redux';
 import useStyles from './styles.js';
 import { deletePost, likePost } from '../../../actions/posts.js';
+import CommentForm from './CommentForm.js';
 
 export default function SinglePost({ post, setCurrentId }) {
   const classes = useStyles();
@@ -81,6 +83,7 @@ export default function SinglePost({ post, setCurrentId }) {
           Delete
         </Button>
       </CardActions>
+      <CommentForm />
     </Card>
   );
 }
